@@ -114,7 +114,7 @@ import {
   updateSkillEdit,
   updateSkillEnabled,
 } from "./controllers/skills.ts";
-import { buildExternalLinkRel, EXTERNAL_LINK_TARGET } from "./external-link.ts";
+// import { buildExternalLinkRel, EXTERNAL_LINK_TARGET } from "./external-link.ts";
 import "./components/dashboard-header.ts";
 import { icons } from "./icons.ts";
 import { normalizeBasePath, TAB_GROUPS, subtitleForTab, titleForTab } from "./navigation.ts";
@@ -913,8 +913,8 @@ export function renderApp(state: AppViewState) {
                         alt="OpenClaw"
                       />
                       <span class="sidebar-brand__copy">
-                        <span class="sidebar-brand__eyebrow">${t("nav.control")}</span>
-                        <span class="sidebar-brand__title">OpenClaw</span>
+                        <span class="sidebar-brand__eyebrow">${t("nav.intellec")}</span>
+                        <span class="sidebar-brand__title">IntellecClaw</span>
                       </span>
                     `}
               </div>
@@ -976,21 +976,6 @@ export function renderApp(state: AppViewState) {
             </div>
             <div class="sidebar-shell__footer">
               <div class="sidebar-utility-group">
-                <a
-                  class="nav-item nav-item--external sidebar-utility-link"
-                  href="https://docs.openclaw.ai"
-                  target=${EXTERNAL_LINK_TARGET}
-                  rel=${buildExternalLinkRel()}
-                  title="${t("common.docs")} (opens in new tab)"
-                >
-                  <span class="nav-item__icon" aria-hidden="true">${icons.book}</span>
-                  ${!navCollapsed
-                    ? html`
-                        <span class="nav-item__text">${t("common.docs")}</span>
-                        <span class="nav-item__external-icon">${icons.externalLink}</span>
-                      `
-                    : nothing}
-                </a>
                 <div class="sidebar-mode-switch">${renderTopbarThemeModeToggle(state)}</div>
                 ${(() => {
                   const version = state.hello?.server?.version ?? "";
@@ -1017,30 +1002,31 @@ export function renderApp(state: AppViewState) {
         ${state.updateAvailable &&
         state.updateAvailable.latestVersion !== state.updateAvailable.currentVersion &&
         !isUpdateBannerDismissed(state.updateAvailable)
-          ? html`<div class="update-banner callout danger" role="alert">
-              <strong>Update available:</strong> v${state.updateAvailable.latestVersion} (running
-              v${state.updateAvailable.currentVersion}).
-              <button
-                class="btn btn--sm update-banner__btn"
-                ?disabled=${state.updateRunning || !state.connected}
-                @click=${() => runUpdate(state)}
-              >
-                ${state.updateRunning ? "Updating…" : "Update now"}
-              </button>
-              <button
-                class="update-banner__close"
-                type="button"
-                title="Dismiss"
-                aria-label="Dismiss update banner"
-                @click=${() => {
-                  dismissUpdateBanner(state.updateAvailable);
-                  state.updateAvailable = null;
-                }}
-              >
-                ${icons.x}
-              </button>
-            </div>`
-          : nothing}
+          ? ""
+          : // ? html`<div class="update-banner callout danger" role="alert">
+            //     <strong>Update available:</strong> v${state.updateAvailable.latestVersion} (running
+            //     v${state.updateAvailable.currentVersion}).
+            //     <button
+            //       class="btn btn--sm update-banner__btn"
+            //       ?disabled=${state.updateRunning || !state.connected}
+            //       @click=${() => runUpdate(state)}
+            //     >
+            //       ${state.updateRunning ? "Updating…" : "Update now"}
+            //     </button>
+            //     <button
+            //       class="update-banner__close"
+            //       type="button"
+            //       title="Dismiss"
+            //       aria-label="Dismiss update banner"
+            //       @click=${() => {
+            //         dismissUpdateBanner(state.updateAvailable);
+            //         state.updateAvailable = null;
+            //       }}
+            //     >
+            //       ${icons.x}
+            //     </button>
+            //   </div>`
+            nothing}
         ${state.tab === "config"
           ? nothing
           : html`<section class="content-header">

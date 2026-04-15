@@ -476,7 +476,7 @@ img.chat-avatar {
 }
 
 .chat-delete-confirm__yes:hover {
-  background: #dc2626;
+  background: #ef4444;
 }
 
 @media (max-width: 768px) {
