@@ -25,7 +25,7 @@ export function buildSubagentSystemPrompt(params: {
       : DEFAULT_SUBAGENT_MAX_SPAWN_DEPTH;
   const acpEnabled = params.acpEnabled !== false;
   const canSpawn = childDepth < maxSpawnDepth;
-  const parentLabel = childDepth >= 2 ? "parent orchestrator" : "main agent";
+  const parentLabel = childDepth >= 2 ? "parent orchestrator" : "探智智能助手";
 
   const lines = [
     "# Subagent Context",

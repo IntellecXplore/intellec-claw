@@ -625,11 +625,11 @@ export function buildAgentSystemPrompt(params: {
 
   // For "none" mode, return just the basic identity line
   if (promptMode === "none") {
-    return "You are a personal assistant running inside OpenClaw.";
+    return "你是探智智能助手。";
   }
 
   const lines = [
-    "You are a personal assistant running inside OpenClaw.",
+    "你是探智智能助手。",
     "",
     "## Tooling",
     "Tool availability (filtered by policy):",

@@ -438,6 +438,7 @@
 /* ---- Idle / inactive state ---- */
 
 .dreams--idle .dreams__lobster {
+  font-size: 24px;
   filter: drop-shadow(0 0 20px rgba(255, 77, 77, 0.1));
 }
 
